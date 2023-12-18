@@ -1,0 +1,13 @@
+import { body } from 'express-validator';
+
+// create {{ properCase modelName }} Validator for your create route
+const create{{ properCase modelName }}Validator = () => [
+  body('example').isString().withMessage('example is required'),
+];
+
+// get {{ properCase modelName}} Validator for your get route
+const get{{ properCase modelName }}Validator = () => [
+  body('example').isString().withMessage('example is required'),
+];
+
+export { create{{ properCase modelName }}Validator, get{{ properCase modelName }}Validator };

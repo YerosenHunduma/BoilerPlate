@@ -1,0 +1,46 @@
+/* eslint-disable no-undef */
+import chai from 'chai';
+import mongoose from 'mongoose';
+import httpStatus from 'http-status';
+import app from '../../../src/index';
+import connectToDb from '../../../src/config/mongoose';
+
+import {{ properCase modelName }}s from '../../../src/models/{{modelName}}s';
+
+chai.use(require('chai-http'));
+
+const { request, expect } = chai;
+
+describe('{{ modelName }} Routes Test', () => {
+  before((done) => {
+    connectToDb().then(() => {
+      done();
+    });
+  });
+
+  describe('# [POST] /api/{{ modelName }}/create', () => {
+    // un comment the code below add modify for your test conditions
+    // it('Should create a {{ modelName }}', async () => {
+    //   const response = await request(app)
+    //     .post('/api/{{ modelName }}/create')
+    //     .send('send valid data here');
+    //
+    //   expect(response).to.have.status(httpStatus.OK);
+    //   expect(response.body).to.be.an('object');
+    //   expect(response.body).to.have.property('tested model field');
+    // });
+  });
+
+  after((done) => {
+    // Clean up test data for next run
+    Users.deleteMany({})
+      .exec()
+      .then(() => {
+        mongoose.connection.close();
+        done();
+      })
+      .catch((err) => {
+        throw err;
+      });
+  });
+});
